@@ -2,6 +2,8 @@
 /* 🚀🚀🚀🤓 Task 1: 🤓🚀🚀🚀 
 Study the code below and explain in your own words why nested function can access the variable internal. */
 
+const { tsConstructorType } = require("@babel/types");
+
 const external = "I'm outside the function";
 
 function myFunction() {
@@ -16,6 +18,8 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
+//The nested function can do this because it is a child to the other function and because of the parent child relationship it is able to take from the parent.
+  
 
 
 
@@ -28,9 +32,10 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
+function summation(num) {
+for(let i = 0; i < num; i++)
 
+return summation
   }
  
 
@@ -56,8 +61,11 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(zooAnimals){
+    const names = zooAnimals.filter(function(item){
+       item.animal_name;
+    });
+    return `name: ${item}, scientific: {scientific name}`
   }
   
 
@@ -67,8 +75,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(zooAnimals){
+    const lowerCase = zooAnimals.map(function(item){
+      return item.animal_name.toLowerCase();
+    });
   }
   
   
@@ -77,8 +87,10 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(zooAnimals){
+    let low = [];
+    const lowPop = low.filter(low => zooAnimals.length < 8)
+    return lowPop;
   }
   
 
@@ -88,8 +100,9 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(zooAnimals){
+    let toto = zooAnimals.reduce((acc, item) => acc + item.population,0)
+    return (toto / zooAnimals.length);
   }
   
   
@@ -101,30 +114,36 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a, b, cb){
+     first = a;
+     second = b;
+     call = cb;
+
+    return call;
+
+
   }
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
+function add(consumecb){
+    return a + b;
   }
 
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(consumecb){
+   return a * b;
   }
 
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
+function greeting(first, last){
+   return `Hello ${first} ${last}, nice to meet you!`
   }
   
   
@@ -139,15 +158,28 @@ function greeting(/*Your Code Here */){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(length, width, height){
+  class math{
+     constructor(){
+    this.length = length;
+    this.width = width;
+    this.height = height;
+     }
+  }
 }
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-
+const volume = {
+  length: "x",
+  width: 'y',
+  height: 'z',
+  totovol: function(){
+    return this.length * this.width * this. height;
+  }
+};
 
 
 
@@ -156,7 +188,14 @@ function CuboidMaker(/*Your Code Here */){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
-
+  const surfaceArea = {
+    length: "x",
+    width: 'y',
+    height: 'z',
+    totoSurf: function(){
+      return this.length * this.width + this.length * this. height + this.width * this.height;
+    }
+  };
 
 
 
@@ -164,7 +203,11 @@ function CuboidMaker(/*Your Code Here */){
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
-
+  let cuboid = {
+    length: 4,
+    width: 5,
+    height: 5,
+  };
 
 
 
